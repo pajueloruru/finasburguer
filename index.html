@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fina's Burger | Hamburguesas Premium · Paracuellos de Jarama</title>
+  <meta name="description" content="Fina's Burger, la hamburguesería premium de Paracuellos de Jarama. Smash burgers artesanales, pulled pork, tenders y mucho más. 5.0 estrellas en Google." />
+  <meta name="keywords" content="hamburguesería Paracuellos de Jarama, smash burger Madrid, hamburguesas artesanales, Fina's Burger, pulled pork, mejores hamburguesas Madrid norte" />
+  <meta property="og:title" content="Fina's Burger | Hamburguesas Premium" />
+  <meta property="og:description" content="La hamburguesería con 5.0 estrellas en Google en Paracuellos de Jarama, Madrid." />
+  <meta property="og:type" content="restaurant" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== PROGRESS BAR ===== -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <a href="#inicio" class="nav__logo">
+      <img src="img/logo.png" alt="Fina's Burger" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#reviews">Reseñas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="btn btn--nav" id="btnPedirNav">Pedir ahora</button>
+    <button class="nav__burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== MODAL PEDIR ===== -->
+  <div class="modal-overlay" id="modalPedir" role="dialog" aria-modal="true" aria-label="Pedir a domicilio">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar">✕</button>
+      <div class="modal__icon">📞</div>
+      <h3 class="modal__title">Pedidos a domicilio</h3>
+      <p class="modal__sub">Llámanos y te lo llevamos donde estés</p>
+      <a href="tel:+34669963439" class="modal__call">
+        <span class="modal__phone">669 96 34 39</span>
+        <span class="modal__cta">Llamar ahora</span>
+      </a>
+      <p class="modal__note">También puedes escribirnos por WhatsApp</p>
+      <a href="https://wa.me/34669963439" class="btn btn--ghost modal__wa" target="_blank" rel="noopener">Abrir WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#menu" class="mm-link">Menú</a></li>
+      <li><a href="#reviews" class="mm-link">Reseñas</a></li>
+      <li><a href="#contacto" class="mm-link">Contacto</a></li>
+    </ul>
+    <button class="btn btn--primary" id="btnPedirMobile">Pedir ahora</button>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero__media">
+      <video class="hero__video" muted playsinline preload="auto" id="heroVideo" autoplay>
+        <source src="animacion/animacion.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="hero__grain"></div>
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__badge" data-anim="badge">
+        <span class="badge__stars">★★★★★</span>
+        <span class="badge__score">5.0</span>
+        <span class="badge__sep">·</span>
+        <span class="badge__count">113 reseñas en Google</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__line" data-anim="line">Sabor que</span>
+        <span class="hero__line hero__line--accent" data-anim="line">no se olvida</span>
+      </h1>
+
+      <p class="hero__sub" data-anim="sub">Hamburguesas artesanales de autor · Paracuellos de Jarama, Madrid</p>
+
+      <div class="hero__actions" data-anim="actions">
+        <a href="#menu" class="btn btn--primary">Ver la carta</a>
+        <a href="#reviews" class="btn btn--ghost">Nuestras reseñas</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Smash Burgers</span><span class="mx">·</span>
+      <span>Pulled Pork</span><span class="mx">·</span>
+      <span>Chicken Tenders</span><span class="mx">·</span>
+      <span>5.0 ★ Google</span><span class="mx">·</span>
+      <span>Paracuellos de Jarama</span><span class="mx">·</span>
+      <span>Ingredientes Premium</span><span class="mx">·</span>
+      <span>Smash Burgers</span><span class="mx">·</span>
+      <span>Pulled Pork</span><span class="mx">·</span>
+      <span>Chicken Tenders</span><span class="mx">·</span>
+      <span>5.0 ★ Google</span><span class="mx">·</span>
+      <span>Paracuellos de Jarama</span><span class="mx">·</span>
+      <span>Ingredientes Premium</span><span class="mx">·</span>
+    </div>
+  </div>
+
+  <!-- ===== FILOSOFÍA ===== -->
+  <section class="philosophy">
+    <div class="container">
+      <div class="philosophy__grid">
+        <div class="philosophy__copy">
+          <span class="label">Nuestra historia</span>
+          <h2 class="philosophy__h2">Cada burger,<br/>una obra de arte</h2>
+          <p class="philosophy__body">En Fina's Burger no hacemos hamburguesas, creamos experiencias. Ingredientes seleccionados, técnica smash perfeccionada y recetas propias que han conquistado Paracuellos de Jarama — y más allá.</p>
+          <div class="philosophy__stats">
+            <div class="philosophy__stat">
+              <span class="stat-n" data-target="5.0">0</span>
+              <span class="stat-l">Valoración Google</span>
+            </div>
+            <div class="philosophy__stat">
+              <span class="stat-n" data-target="113">0</span>
+              <span class="stat-l">Reseñas</span>
+            </div>
+            <div class="philosophy__stat">
+              <span class="stat-n">100%</span>
+              <span class="stat-l">Hecho con amor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy__images">
+          <!-- Foto principal -->
+          <div class="ph ph--main">
+            <img src="img/bbq-pulled-pork.png" alt="BBQ Pulled Burger - Fina's Burger" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);" />
+          </div>
+          <!-- Foto local -->
+          <div class="ph ph--sm ph--sm-1">
+            <img src="img/local.png" alt="Local Fina's Burger" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENÚ ===== -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="menu__header">
+        <span class="label">La carta</span>
+        <h2 class="menu__h2">Nuestro Menú</h2>
+      </div>
+    </div>
+
+    <!-- Sticky Category Nav -->
+    <div class="menu__nav-wrap" id="menuNavWrap">
+      <nav class="menu__nav container">
+        <button class="mnav-btn active" data-target="entrantes">Entrantes</button>
+        <button class="mnav-btn" data-target="principales">Principales</button>
+        <button class="mnav-btn" data-target="salsas">Salsas</button>
+      </nav>
+    </div>
+
+    <div class="container">
+
+      <!-- ENTRANTES -->
+      <div class="menu__section" id="entrantes">
+        <h3 class="menu__section-h">Entrantes</h3>
+        <div class="menu__grid menu__grid--4">
+
+          <article class="card">
+            <div class="card__img"><img src="img/tequenos.png" alt="Tequeños" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Tequeños</h4>
+                <span class="card__price">7,50 €</span>
+              </div>
+              <p class="card__desc">Con salsa a elegir</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/chicken-tenders.png" alt="Chicken Tenders" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Tenders</h4>
+                <span class="card__price">8,50 €</span>
+              </div>
+              <p class="card__desc">Con salsa a elegir</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/patatasgajo.png" alt="Patatas Gajo" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Patatas Gajo</h4>
+                <span class="card__price">3,50 €</span>
+              </div>
+              <p class="card__desc">Con salsa a elegir</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/boniato.jpg" alt="Patatas Boniato" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Patatas Boniato</h4>
+                <span class="card__price">5,00 €</span>
+              </div>
+              <p class="card__desc">Con salsa a elegir</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- PRINCIPALES -->
+      <div class="menu__section" id="principales">
+        <h3 class="menu__section-h">Principales</h3>
+        <p class="menu__section-note">Proteínas: Carne smash · Pollo · Pulled pork &nbsp;|&nbsp; Acompañamiento: Patatas gajo o boniato <span class="note-accent">+1,50 €</span></p>
+        <div class="menu__grid menu__grid--3">
+
+          <!-- FEATURED -->
+          <article class="card card--featured">
+            <div class="card__img">
+              <img src="img/finasburguer.png" alt="Fina's Burger" style="width:100%;height:100%;object-fit:cover;" />
+              <span class="card__badge">Especial</span>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Fina's Burger</h4>
+                <span class="card__price">12,50 €</span>
+              </div>
+              <p class="card__desc">Doble smash Oklahoma, bacon y salsa Fina's</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/smash.jpg" alt="Smash Burger" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Smash</h4>
+                <span class="card__price">9,90 €</span>
+              </div>
+              <p class="card__desc">Doble Smash Cheese o pollo tender</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/americana.png" alt="Americana" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Americana</h4>
+                <span class="card__price">10,90 €</span>
+              </div>
+              <p class="card__desc">Carne, doble cheddar, bacon, ketchup/mostaza y pepinillos</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/wrappollo.png" alt="Wrap de Pollo" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Wrap de Pollo</h4>
+                <span class="card__price">11,50 €</span>
+              </div>
+              <p class="card__desc">Tiras de pollo tenders, cebolla, tomate, mix lechuga y queso</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/clasica.jpg" alt="Clásica" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Clásica</h4>
+                <span class="card__price">11,90 €</span>
+              </div>
+              <p class="card__desc">Proteína a elegir, bacon, doble cheddar, cebolla, tomate, lechuga y pepinillos</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/louchickenburguer.png" alt="Lou Chicken Burger" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Lou Chicken Burger</h4>
+                <span class="card__price">12,50 €</span>
+              </div>
+              <p class="card__desc">Tenders pollo, cheddar, coleslaw, lechuga, mostaza miel</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/wrappulled.png" alt="Wrap Pulled" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Wrap Pulled</h4>
+                <span class="card__price">12,50 €</span>
+              </div>
+              <p class="card__desc">Pulled pork, cebolla, tomate, mix lechuga, patatas paja y queso</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img"><img src="img/bbq-pulled-pork.png" alt="BBQ Pulled Burger" style="width:100%;height:100%;object-fit:cover;" /></div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">BBQ Pulled Burger</h4>
+                <span class="card__price">13,50 €</span>
+              </div>
+              <p class="card__desc">Pulled pork, patatas paja, aros de cebolla, salsa BBQ y cheddar</p>
+            </div>
+          </article>
+
+          <article class="card card--kids">
+            <div class="card__img">
+              <img src="img/finas-kids.png" alt="Fina's Kids" style="width:100%;height:100%;object-fit:cover;" />
+              <span class="card__badge card__badge--kids">Kids</span>
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h4 class="card__name">Fina's Kids</h4>
+                <span class="card__price">8,90 €</span>
+              </div>
+              <p class="card__desc">Smash Cheese Burger o Tenders de pollo con patatas fritas</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- SALSAS -->
+      <div class="menu__section" id="salsas">
+        <h3 class="menu__section-h">Salsas</h3>
+        <div class="salsas">
+          <div class="salsa-group">
+            <div class="salsa-group__head">
+              <h4>De la casa</h4>
+              <span class="salsa-badge">+0,75 €</span>
+            </div>
+            <ul class="salsa-list">
+              <li>Salsa Fina's</li>
+              <li>Mayo de ajo</li>
+              <li>Mayo chipotle</li>
+              <li>Mayo de trufa</li>
+              <li>Mostaza de miel</li>
+            </ul>
+          </div>
+          <div class="salsa-group">
+            <div class="salsa-group__head">
+              <h4>Clásicas</h4>
+              <span class="salsa-badge salsa-badge--free">Incluidas</span>
+            </div>
+            <ul class="salsa-list">
+              <li>Mayonesa</li>
+              <li>Ketchup</li>
+              <li>Mostaza</li>
+              <li>Barbacoa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews" id="reviews">
+    <div class="reviews__bg-text" aria-hidden="true">5.0</div>
+
+    <div class="container">
+      <div class="reviews__header">
+        <span class="label">Lo que dicen de nosotros</span>
+        <h2 class="reviews__score">5.0 <span class="reviews__star">★</span></h2>
+        <p class="reviews__meta">113 reseñas verificadas · Google Maps · Paracuellos de Jarama</p>
+      </div>
+
+      <div class="reviews__stage">
+        <div class="reviews__track" id="reviewsTrack">
+
+          <div class="rcard">
+            <div class="rcard__stars">★★★★★</div>
+            <p class="rcard__text">"La mejor hamburguesería de la zona sin duda. Las smash burgers están increíbles, el pan perfecto y la salsa Fina's es absolutamente adictiva. ¡Volveremos siempre!"</p>
+            <div class="rcard__footer">
+              <div class="rcard__avatar">M</div>
+              <div>
+                <span class="rcard__name">María G.</span>
+                <span class="rcard__loc">Paracuellos de Jarama</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rcard">
+            <div class="rcard__stars">★★★★★</div>
+            <p class="rcard__text">"El BBQ Pulled Burger es espectacular. Carne tierna, salsas perfectas y el trato del personal es excelente. Un descubrimiento que recomiendo a todo el mundo."</p>
+            <div class="rcard__footer">
+              <div class="rcard__avatar">C</div>
+              <div>
+                <span class="rcard__name">Carlos R.</span>
+                <span class="rcard__loc">San Fernando de Henares</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rcard">
+            <div class="rcard__stars">★★★★★</div>
+            <p class="rcard__text">"Probé los tequeños y la Fina's Burger y ambas son de nivel altísimo. Sitio con mucho mimo, se nota que cuidan cada detalle. 100% recomendable sin dudarlo."</p>
+            <div class="rcard__footer">
+              <div class="rcard__avatar">L</div>
+              <div>
+                <span class="rcard__name">Laura M.</span>
+                <span class="rcard__loc">Alcalá de Henares</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rcard">
+            <div class="rcard__stars">★★★★★</div>
+            <p class="rcard__text">"Impresionante relación calidad-precio. La Lou Chicken Burger con patatas boniato es una combinación ganadora. Local acogedor y servicio muy rápido."</p>
+            <div class="rcard__footer">
+              <div class="rcard__avatar">A</div>
+              <div>
+                <span class="rcard__name">Alejandro P.</span>
+                <span class="rcard__loc">Paracuellos de Jarama</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rcard">
+            <div class="rcard__stars">★★★★★</div>
+            <p class="rcard__text">"Los tenders son de los mejores que he comido en mi vida. El local tiene muy buen ambiente y el equipo es súper amable. Una hamburguesería que no defrauda nunca."</p>
+            <div class="rcard__footer">
+              <div class="rcard__avatar">S</div>
+              <div>
+                <span class="rcard__name">Sara F.</span>
+                <span class="rcard__loc">Torrejón de Ardoz</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="reviews__controls">
+          <button class="rctrl" id="revPrev" aria-label="Anterior">&#8592;</button>
+          <div class="reviews__dots" id="reviewsDots"></div>
+          <button class="rctrl" id="revNext" aria-label="Siguiente">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="reviews__cta">
+        <a href="https://maps.google.com/?cid=finasburger" target="_blank" rel="noopener" class="btn btn--outline">
+          Ver todas las reseñas en Google ↗
+        </a>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJeaBKwKSiQQ0RFv7wSFXoZiA" target="_blank" rel="noopener" class="btn btn--primary">
+          ★ Dejar mi reseña
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="contacto__header">
+        <span class="label">Encuéntranos</span>
+        <h2 class="contacto__h2">Visítanos</h2>
+      </div>
+
+      <div class="contacto__grid">
+        <div class="contacto__info">
+
+          <div class="cinfo-item">
+            <div class="cinfo-icon">📍</div>
+            <div>
+              <h4>Dirección</h4>
+              <p>C. Real, 46<br/>28860 Paracuellos de Jarama, Madrid</p>
+            </div>
+          </div>
+
+          <div class="cinfo-item">
+            <div class="cinfo-icon">🕐</div>
+            <div>
+              <h4>Horario</h4>
+              <p>
+                Lun – Jue: 13:00 – 22:00<br/>
+                Vie – Sáb: 13:00 – 23:00<br/>
+                Dom: 13:00 – 22:00
+              </p>
+            </div>
+          </div>
+
+          <div class="cinfo-item">
+            <div class="cinfo-icon">📞</div>
+            <div>
+              <h4>Teléfono</h4>
+              <p><a href="tel:+34669963439">669 96 34 39</a></p>
+            </div>
+          </div>
+
+          <div class="cinfo-socials">
+            <a href="https://www.instagram.com/burgerfinas/" class="sbtn" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" class="sbtn" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://wa.me/34669963439" class="sbtn sbtn--wa" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+        </div>
+
+        <div class="contacto__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3033.6858788765205!2d-3.5292!3d40.5148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228ba4c0f1a79%3A0x0!2sC.+Real%2C+46%2C+28860+Paracuellos+de+Jarama%2C+Madrid!5e0!3m2!1ses!2ses!4v1711000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Fina's Burger">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="img/logo.png" alt="Fina's Burger" class="footer__logo" />
+      <p class="footer__copy">© 2025 Fina's Burger · Paracuellos de Jarama, Madrid</p>
+      <div class="footer__rating">
+        <span>★★★★★</span>
+        <span>5.0 · Google</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BOTÓN MÓVIL PEDIR ===== -->
+  <div class="mobile-cta" id="mobileCta">
+    <button class="mobile-cta__btn" id="btnPedirBottom">
+      📞 Pedir ahora
+    </button>
+  </div>
+
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
